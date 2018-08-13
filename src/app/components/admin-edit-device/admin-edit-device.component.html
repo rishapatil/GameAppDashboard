@@ -1,0 +1,41 @@
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>Device edited.</p>
+</div>
+<div class="alert alert-danger" *ngIf="errorMsg">
+  <p>Device exists, choose another.</p>
+</div>
+<div class="alert alert-danger" *ngIf="errorMsg2">
+  <p>Problem editing Device, try later.</p>
+</div>
+
+<h1 class="device-device_id">Edit {{ device?.device_id }} device</h1>
+<!--<h1 class="user-password">Edit {{ user?.password }} user</h1>-->
+<a class="btn btn-primary" routerLink="/admin/devices">Back to all devices</a>
+<br>
+<br>
+
+<form novalidate #f="ngForm" (ngSubmit)="editDevice(f)">
+
+  <div class="form-group">
+      <label for="">Device Id:</label>
+      <input type="text" class="form-control" placeholder="Device Id" name="device_id" [(ngModel)]="device_id" #deviceDevice_id="ngModel"
+           required />
+  </div>
+  <div class="alert alert-danger" *ngIf="deviceDevice_id.errors?.required && deviceDevice_id.touched">
+      DeviceId is required.
+  </div>
+  
+  <div class="form-group">
+    <label for="">Station Id:</label>
+    <input type="text" class="form-control" placeholder="Station Id" name="station_id" [(ngModel)]="station_id" #deviceStation_id="ngModel"
+         required />
+  </div>
+
+  <input type="hidden" name="id" [(ngModel)]="id">
+
+  <div class="form-group">
+      <button class="btn btn-default" [disabled]="!f.valid">Edit device</button>
+  </div>
+
+</form>
+

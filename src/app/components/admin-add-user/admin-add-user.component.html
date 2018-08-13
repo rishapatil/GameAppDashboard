@@ -1,0 +1,38 @@
+<div class="alert alert-success" *ngIf="successMsg">
+    <p>User added.</p>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMsg">
+    <p>Username exists, choose another.</p>
+</div>
+
+<h1 class="page-title">Add a User</h1>
+<a class="btn btn-primary" routerLink="/admin/users">Back to all users</a>
+<br>
+<br>
+
+<form novalidate #f="ngForm" (ngSubmit)="addUser(f)">
+
+    <div class="form-group">
+        <label for="">Username:</label>
+        <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="username" #userUsername="ngModel"
+            minlength="3" required />
+    </div>
+    <div class="alert alert-danger" *ngIf="userUsername.errors?.required && userUsername.touched">
+        Username is required.
+    </div>
+    <div class="alert alert-danger" *ngIf="userUsername.errors?.minlength && userUsername.touched">
+        Minimum length is 3.
+    </div>
+
+    <div class="form-group">
+        <label for="">Password:</label>
+        <input type="text" class="form-control" placeholder="Password" name="password" [(ngModel)]="password" #userPassword="ngModel"
+            minlength="3" required />
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-default" [disabled]="!f.valid">Add user</button>
+    </div>
+
+</form>

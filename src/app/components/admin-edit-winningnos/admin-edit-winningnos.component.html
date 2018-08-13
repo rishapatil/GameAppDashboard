@@ -1,0 +1,43 @@
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>Winning No. edited.</p>
+</div>
+<div class="alert alert-danger" *ngIf="errorMsg">
+  <p>Winning No. exists, choose another.</p>
+</div>
+<div class="alert alert-danger" *ngIf="errorMsg2">
+  <p>Problem editing Winning No., try later.</p>
+</div>
+
+<h1 class="winningno-game_type">Edit {{ winningno?.game_type }} winningno</h1>
+<!--<h1 class="user-password">Edit {{ user?.password }} user</h1>-->
+<a class="btn btn-primary" routerLink="/admin/winning-nos">Back to all Winningnos</a>
+<br>
+<br>
+
+<form novalidate #f="ngForm" (ngSubmit)="editWinningno(f)">
+
+  <div class="form-group">
+      <label for="">Game Type:</label>
+      <input type="text" class="form-control" placeholder="Game Type" name="game_type" [(ngModel)]="game_type" #winningnoGame_type="ngModel"
+          minlength="3" required />
+  </div>
+  <div class="alert alert-danger" *ngIf="winningnoGame_type.errors?.required && winningnoGame_type.touched">
+      Game Type is required.
+  </div>
+  <div class="alert alert-danger" *ngIf="winningnoGame_type.errors?.minlength && winningnoGame_type.touched">
+      Minimum length is 3.
+  </div>
+
+  <div class="form-group">
+    <label for="">Result Date:</label>
+    <input type="text" class="form-control" placeholder="Result Date" name="result_date" [(ngModel)]="result_date" #winningnoResult_date="ngModel"
+        minlength="3" required />
+  </div>
+
+  <input type="hidden" name="id" [(ngModel)]="id">
+
+  <div class="form-group">
+      <button class="btn btn-default" [disabled]="!f.valid">Edit Winningno</button>
+  </div>
+
+</form>

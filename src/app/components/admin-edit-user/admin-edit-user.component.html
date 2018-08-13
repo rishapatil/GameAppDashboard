@@ -1,0 +1,43 @@
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>User edited.</p>
+</div>
+<div class="alert alert-danger" *ngIf="errorMsg">
+  <p>Username exists, choose another.</p>
+</div>
+<div class="alert alert-danger" *ngIf="errorMsg2">
+  <p>Problem editing user, try later.</p>
+</div>
+
+<h1 class="user-username">Edit {{ user?.username }} user</h1>
+<!--<h1 class="user-password">Edit {{ user?.password }} user</h1>-->
+<a class="btn btn-primary" routerLink="/admin/users">Back to all users</a>
+<br>
+<br>
+
+<form novalidate #f="ngForm" (ngSubmit)="editUser(f)">
+
+  <div class="form-group">
+      <label for="">Username:</label>
+      <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="username" #userUsername="ngModel"
+          minlength="3" required />
+  </div>
+  <div class="alert alert-danger" *ngIf="userUsername.errors?.required && userUsername.touched">
+      Username is required.
+  </div>
+  <div class="alert alert-danger" *ngIf="userUsername.errors?.minlength && userUsername.touched">
+      Minimum length is 3.
+  </div>
+
+  <div class="form-group">
+    <label for="">Password:</label>
+    <input type="text" class="form-control" placeholder="Password" name="password" [(ngModel)]="password" #userPassword="ngModel"
+        minlength="3" required />
+  </div>
+
+  <input type="hidden" name="id" [(ngModel)]="id">
+
+  <div class="form-group">
+      <button class="btn btn-default" [disabled]="!f.valid">Edit user</button>
+  </div>
+
+</form>

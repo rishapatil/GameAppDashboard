@@ -1,0 +1,41 @@
+
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>Device deleted.</p>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMsg">
+  <p>Error deleting the Device.</p>
+</div>
+
+<h1 class="page-title">Devices</h1>
+<a class="btn btn-primary" routerLink="/admin/add-device">Add a Device</a>
+<br><br>
+
+<table class="table">
+  <tr bgcolor="#f9f9f9">
+      <th>Device Id</th>
+      <th>Station Id</th>
+      <th>Edit</th>
+      <th>Delete</th>
+  </tr>
+
+  <tr *ngFor="let device of devices">
+      <td>
+          {{ device.device_id }}
+      </td>
+      <td>
+        {{ device.station_id }}
+      </td>
+      <td>
+        
+          <a routerLink="/admin/edit-device/{{ device._id }}">Edit</a>
+      
+      </td>
+      <td>
+          <a (click)="deleteDevice(device._id)" routerLink="/admin/devices">Delete</a>
+      </td>
+  </tr>
+</table>
+
+
+

@@ -1,0 +1,35 @@
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>Device added.</p>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMsg">
+  <p>DeviceId exists, choose another.</p>
+</div>
+
+<h1 class="page-title">Add a Device</h1>
+<a class="btn btn-primary" routerLink="/admin/devices">Back to all devices</a>
+<br>
+<br>
+
+<form novalidate #f="ngForm" (ngSubmit)="addDevice(f)">
+
+  <div class="form-group">
+      <label for="">DeviceId:</label>
+      <input type="text" class="form-control" placeholder="DeviceId" name="device_id" [(ngModel)]="device_id" #deviceDevice_id="ngModel"
+          required />
+  </div>
+  <div class="alert alert-danger" *ngIf="deviceDevice_id.errors?.required && deviceDevice_id.touched">
+    DeviceId is required.
+  </div>
+
+  <div class="form-group">
+      <label for="">StationId:</label>
+      <input type="text" class="form-control" placeholder="StationId" name="station_id" [(ngModel)]="station_id" #deviceStation_id="ngModel"
+           required />
+  </div>
+
+  <div class="form-group">
+      <button class="btn btn-default" [disabled]="!f.valid">Add Device</button>
+  </div>
+
+</form>

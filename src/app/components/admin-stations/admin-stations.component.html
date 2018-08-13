@@ -1,0 +1,41 @@
+
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>Station deleted.</p>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMsg">
+  <p>Error deleting the station.</p>
+</div>
+
+<h1 class="page-title">Stations</h1>
+<a class="btn btn-primary" routerLink="/admin/add-station">Add a station</a>
+<br><br>
+
+<table class="table">
+  <tr bgcolor="#f9f9f9">
+      <th>Station Id</th>
+      <th>Devices Count</th>
+      <th>Edit</th>
+      <th>Delete</th>
+  </tr>
+
+  <tr *ngFor="let station of stations">
+      <td>
+          {{ station.station_id }}
+      </td>
+      <td>
+        {{ station.devices_count }}
+      </td>
+      <td>
+        
+          <a routerLink="/admin/edit-station/{{ station._id }}">Edit</a>
+      
+      </td>
+      <td>
+          <a (click)="deleteStation(station._id)" routerLink="/admin/stations">Delete</a>
+      </td>
+  </tr>
+</table>
+
+
+

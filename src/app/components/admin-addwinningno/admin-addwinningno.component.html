@@ -1,0 +1,69 @@
+<div class="alert alert-success" *ngIf="successMsg">
+    <p>Winning numbers added.</p>
+</div>
+
+
+<h1 class="page-title">Add winning number</h1>
+<a class="btn btn-primary" routerLink="/admin/winning-nos">Back to all winning numbers</a>
+<br>
+<br>
+
+<form novalidate #f="ngForm" (ngSubmit)="addWinningno(f)">
+    <div class="col-3">
+  
+    <div class="form-group">
+        <label for="">Game Type:</label>
+        <input type="text" class="form-control" placeholder="Game Type" name="game_type" [(ngModel)]="game_type" #winningnoGametype="ngModel"
+            minlength="3" required />
+    </div>
+    <div class="form-group">
+        <label for="">Result Date:</label>
+        <input type="text" class="form-control" placeholder="Date" name="result_date" [(ngModel)]="result_date" #winningnoResultdate="ngModel"
+         required />
+    </div>
+    <div class="form-group">
+        <label for="">Number One:</label>
+        <input type="text" class="form-control" placeholder="Number One" name="number_one" [(ngModel)]="number_one" #winningnoNumber_one="ngModel"
+         required />
+    </div>
+    <div class="form-group">
+        <label for="">Number Two:</label>
+        <input type="text" class="form-control" placeholder="Number Two" name="number_two" [(ngModel)]="number_two" #winningnoNumber_two="ngModel"
+         required />
+    </div>
+    <div class="form-group">
+        <label for="">Number Three:</label>
+        <input type="text" class="form-control" placeholder="Number Three" name="number_three" [(ngModel)]="number_three" #winningnoNumber_three="ngModel"
+         required />
+    </div>
+    <div class="form-group">
+        <label for="">Number Four:</label>
+        <input type="text" class="form-control" placeholder="Number Four" name="number_four" [(ngModel)]="number_four" #winningnoNumber_four="ngModel"
+         required />
+    </div>
+    <div class="form-group">
+        <label for="">Number Five:</label>
+        <input type="text" class="form-control" placeholder="Number Five" name="number_five" [(ngModel)]="number_five" #winningnoNumber_five="ngModel"
+         required />
+    </div>
+    <div class="form-group">
+        <label for="">Number Six:</label>
+        <input type="text" class="form-control" placeholder="Number Six" name="number_six" [(ngModel)]="number_six" #winningnoNumber_six="ngModel"
+         required />
+    </div>
+    <div class="form-group">
+        <label for="">Number Seven:</label>
+        <input type="text" class="form-control" placeholder="Number Seven" name="number_seven" [(ngModel)]="number_seven" #winningnoNumber_seven="ngModel"
+         required />
+    </div>
+    <div class="form-group">
+        <label for="">Bonus No:</label>
+        <input type="text" class="form-control" placeholder="Bonus No" name="bonus_no" [(ngModel)]="bonus_no" #winningnoBonus_no="ngModel"
+         required />
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-default" [disabled]="!f.valid">Add winning number</button>
+    </div>
+</div>
+</form>

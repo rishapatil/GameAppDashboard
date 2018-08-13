@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<app-admin-navbar *ngIf="!front"></app-admin-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12" [class.space]="!front">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <h4>Copyright &copy; 2014-2015 <a href="http://mobilesutra.com" target="_blank" style="color:white;">Mobilesutra</a> All rights reserved.
+    </h4>
+
+</div>

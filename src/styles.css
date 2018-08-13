@@ -1,0 +1,74 @@
+nav.admin {
+    background: #337ab7;
+    position: fixed;
+    width: 150px;
+    top: 60px;
+    left: 0;
+    margin-bottom: 0;
+    z-index: 1;
+}
+
+nav.admin li {
+    float: none;
+}
+
+nav.admin li a {
+    color: white !important;
+    font-weight: bold;
+}
+
+div.space {
+    padding-left: 180px;
+}
+
+/*Added css */
+.navbar-inverse .navbar-collapse, 
+.navbar-inverse .navbar-form,.navbar-inverse .navbar-nav > li > a, 
+.navbar-inverse .navbar-brand{
+    background-color: #337ab7;
+    color:white !important;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:#337ab7;
+    color: white;
+    text-align: center;
+ }
+
+body {
+    background-color: #f3f3f3;
+    font-size: 0.875em;
+    overflow-x: hidden;
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+    margin-bottom: 0;
+  }
+  
+  * a {
+    font-size: 14px;
+  }
+  
+  * a:focus, * a:hover {
+    text-decoration: none;
+  }
+  
+  p {
+    font-size: 13px;
+  }
+  
+  .media-left {
+    padding-right: 20px;
+  }
+  
+  .table-responsive {
+    display: block;
+    overflow: auto;
+  }

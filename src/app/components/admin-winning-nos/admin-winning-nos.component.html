@@ -1,0 +1,72 @@
+
+<div class="alert alert-success" *ngIf="successMsg">
+  <p>Result deleted.</p>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMsg">
+  <p>Error deleting the result.</p>
+</div>
+
+<h1 class="page-title">Winning Numbers</h1>
+<a class="btn btn-primary" routerLink="/admin/addwinningno">Add Winning No.</a>
+<br><br>
+
+<table class="table">
+  <tr bgcolor="#f9f9f9">
+      <th>Game Type</th>
+      <th>Date</th>
+      <th>Winning No.1</th>
+      <th>Winning No.2</th>
+      <th>Winning No.3</th>
+      <th>Winning No.4</th>
+      <th>Winning No.5</th>
+      <th>Winning No.6</th>
+      <th>Winning No.7</th>
+      <th>Bonus</th>
+      <!--<th>Edit</th>
+      <th>Delete</th>-->
+  </tr>
+
+  <tr *ngFor="let winningno of winningnos">
+      <td>
+          {{ winningno.game_type }}
+      </td>
+      <td>
+        {{ winningno.result_date }}
+      </td>
+      <td>
+        {{ winningno.number_one }}
+      </td>
+      <td>
+        {{ winningno.number_two }}
+      </td>
+      <td>
+        {{ winningno.number_three }}
+      </td>
+      <td>
+        {{ winningno.number_four }}
+      </td>
+      <td>
+        {{ winningno.number_five }}
+      </td>
+      <td>
+        {{ winningno.number_six }}
+      </td>
+      <td>
+        {{ winningno.number_seven }}
+      </td>
+      <td>
+        {{ winningno.bonus_no }}
+      </td>
+     <!-- <td>
+         <a routerLink="/admin/edit-winningnos/{{ winningno._id }}">Edit</a>
+      </td>
+      <td>
+          <a (click)="deleteUser(user._id)" routerLink="/admin/users">Delete</a>
+          <a routerLink="">Delete</a>
+      </td>-->
+  </tr>
+</table>
+
+
+
